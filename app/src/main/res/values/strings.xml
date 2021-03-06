@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TripleTriad Card Wiki</string>
+    <string name="card_name">Card Name</string>
+    <string name="click_detail">Click for detail</string>
+    <string name="action_help">Help</string>
+    <string name="action_about">About</string>
+    <string name="action_filter">Filter</string>
+    <string name="filter">Filter by</string>
+    <string name="about_triple_triad">About Triple Triad</string>
+    <string name="AboutActivity_title">About</string>
+    <string name="my_linkedin">https://www.linkedin.com/in/benedictta-dinda-1233411b4/</string>
+    <string name="my_email">benedictta.dinda@gmail.com</string>
+    <string name="my_name">Benedictta Dinda</string>
+    <string name="filter_dialog_title">Filter by</string>
+    <string name="item_count">Showing n items</string>
+    <string name="my_thesis">https://benedictta.itch.io/triple-triad-fr</string>
+</resources>
