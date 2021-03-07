@@ -13,12 +13,14 @@ import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
+import org.json.JSONObject
 import java.io.InputStream
 
 class MainActivity : AppCompatActivity() {
     private var cardList: ArrayList<Card> = arrayListOf()
     private lateinit var rvCards: RecyclerView
     private var selectedFilter: Int = 0
+    var selectedType: String = "Show All"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         rvCards = findViewById(R.id.rv_cards)
         rvCards.setHasFixedSize(true)
 
-        showList("Show All")
+        showList(selectedType)
 
     }
 
@@ -76,6 +78,15 @@ class MainActivity : AppCompatActivity() {
             //card.photo = R.drawable.squall
             card.id = jsonObj.getInt("id")
             card.type = jsonObj.getString("type")
+            card.level = jsonObj.getInt("level")
+            card.element = jsonObj.getString("element")
+            var tempArr: JSONArray = jsonObj.getJSONArray("attributes")
+            card.attributes= mapOf(
+                "left" to  if(tempArr[3].toString().equals("10")){"A"}else{tempArr[3].toString()},
+                "right" to  if(tempArr[1].toString().equals("10")){"A"}else{tempArr[1].toString()},
+                "top" to  if(tempArr[0].toString().equals("10")){"A"}else{tempArr[0].toString()},
+                "bottom" to  if(tempArr[2].toString().equals("10")){"A"}else{tempArr[2].toString()}
+            )
             if (type.equals("Show All")){
                 list.add(card)
             }
@@ -90,7 +101,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun showFilterDialog(){
         val type = arrayOf("Show All","Monster", "Boss", "Guardian Force", "Player")
-        var selectedType: String? = null
         val builder = AlertDialog.Builder(this)
         with(builder){
             setTitle(getString(R.string.filter_dialog_title))
@@ -127,5 +137,17 @@ class MainActivity : AppCompatActivity() {
         val listHeroAdapter = ListCardAdapter(cardList)
         rvCards.adapter = listHeroAdapter
         updateItemCount(cardList.size)
+
+        listHeroAdapter.setOnItemClickCallback(object : ListCardAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Card) {
+                showSelectedCard(data)
+            }
+        })
+    }
+
+    private fun showSelectedCard(card: Card) {
+        val moveDetail = Intent(this@MainActivity,DetailActivity::class.java)
+        moveDetail.putExtra("id", card.id)
+        startActivity(moveDetail)
     }
 }

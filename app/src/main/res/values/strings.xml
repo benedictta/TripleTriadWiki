@@ -14,4 +14,5 @@
     <string name="filter_dialog_title">Filter by</string>
     <string name="item_count">Showing n items</string>
     <string name="my_thesis">https://benedictta.itch.io/triple-triad-fr</string>
+    <string name="card_type">Level X type card</string>
 </resources>

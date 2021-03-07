@@ -14,6 +14,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.color.MaterialColors
 
 class ListCardAdapter(private val listCard: ArrayList<Card>) : RecyclerView.Adapter<ListCardAdapter.ListViewHolder>(){
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_list_card, viewGroup, false)
@@ -28,6 +33,7 @@ class ListCardAdapter(private val listCard: ArrayList<Card>) : RecyclerView.Adap
             .into(holder.imgPhoto)
         holder.txtName.text = card.name
         holder.txtDetail.text = "Click to show details"
+        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listCard[holder.adapterPosition]) }
         //if(card.id %2 != 0){
             //holder.itemView.setBackgroundColor(Color.parseColor("#95AACD"))
         //}else if(card.id %2 == 0){
@@ -44,6 +50,10 @@ class ListCardAdapter(private val listCard: ArrayList<Card>) : RecyclerView.Adap
         var txtName: TextView = itemView.findViewById(R.id.txt_item_name)
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
         var txtDetail: TextView = itemView.findViewById(R.id.txt_item_detail)
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Card)
     }
 
 }

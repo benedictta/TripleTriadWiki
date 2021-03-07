@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity"
+    android:orientation="vertical"
+    android:padding="15dp">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp">
+
+                <ImageView
+                    android:id="@+id/card_bg"
+                    android:layout_width="160dp"
+                    android:layout_height="180dp"
+                    android:background="@color/pastel_pink" />
+
+                <ImageView
+                    android:id="@+id/card_img"
+                    android:layout_width="160dp"
+                    android:layout_height="180dp"
+                    android:background="@drawable/squall" />
+            </FrameLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txt_card_name"
+                        android:layout_marginBottom="15dp"
+                        android:text="@string/card_name"
+                        android:textSize="28sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txt_card_type"
+                        android:text="@string/card_type"
+                        android:textSize="20sp" />
+                </TableRow>
+
+            </TableLayout>
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Attributes"
+        android:textSize="22sp"
+        android:layout_marginBottom="10dp"/>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <TextView
+                android:padding="7dp"
+                android:text="Left Rank"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:background="@drawable/border"/>
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:id="@+id/txt_left_rank"
+                android:text="0"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@drawable/border"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:text="Right Rank"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@drawable/border"/>
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:id="@+id/txt_right_rank"
+                android:text="0"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@drawable/border"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:text="Top Rank"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@drawable/border"/>
+
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:id="@+id/txt_top_rank"
+                android:text="0"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@drawable/border"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:text="Bottom Rank"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:background="@drawable/border"/>
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:id="@+id/txt_bottom_rank"
+                android:text="0"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:background="@drawable/border"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:text="Element"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@drawable/border"/>
+            <TextView
+                android:padding="7dp"
+                android:textSize="20sp"
+                android:id="@+id/txt_elemental"
+                android:text="Elemental"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@drawable/border"/>
+        </TableRow>
+
+    </TableLayout>
+
+
+</LinearLayout>
