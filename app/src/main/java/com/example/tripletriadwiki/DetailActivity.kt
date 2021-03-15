@@ -37,6 +37,11 @@ class DetailActivity : AppCompatActivity() {
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     private fun getCardData(id: Int): Card{
         val inputStream: InputStream = assets.open("triple-triad-cards-data.json")
         var json = inputStream.bufferedReader().use { it.readText() }
