@@ -147,7 +147,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSelectedCard(card: Card) {
         val moveDetail = Intent(this@MainActivity,DetailActivity::class.java)
-        moveDetail.putExtra("id", card.id)
+        moveDetail.putExtra(DetailActivity.EXTRA_CARD,card)
         startActivity(moveDetail)
     }
 }
